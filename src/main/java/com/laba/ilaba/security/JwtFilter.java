@@ -28,6 +28,9 @@ public class JwtFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         String path = containerRequestContext.getUriInfo().getPath();
         System.out.println(path);
+//        if ("OPTIONS".equalsIgnoreCase(containerRequestContext.getMethod())) {
+//            return;
+//        }
         if (path.contains("login") || path.contains("signup") || (path.contains("orders") &&
                 containerRequestContext.getMethod().equals("OPTIONS")) || (path.contains("cars") &&
                 containerRequestContext.getMethod().equals("OPTIONS"))) {

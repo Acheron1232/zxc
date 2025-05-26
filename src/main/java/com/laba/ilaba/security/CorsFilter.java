@@ -9,11 +9,11 @@ public class CorsFilter implements ContainerResponseFilter, ContainerRequestFilt
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod())) {
-            requestContext.abortWith(
-                jakarta.ws.rs.core.Response.ok().build()
-            );
-        }
+//        if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod())) {
+//            requestContext.abortWith(
+//                jakarta.ws.rs.core.Response.ok().build()
+//            );
+//        }
     }
 
     @Override
@@ -22,6 +22,6 @@ public class CorsFilter implements ContainerResponseFilter, ContainerRequestFilt
         responseContext.getHeaders().add("Access-Control-Allow-Origin", "http://localhost:5173");
         responseContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
         responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH ");
-        responseContext.getHeaders().add("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-XSRF-TOKEN");
+        responseContext.getHeaders().add("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-XSRF-TOKEN, Access-Control-Expose-Headers");
     }
 }
